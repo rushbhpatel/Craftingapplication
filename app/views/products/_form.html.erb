@@ -1,6 +1,6 @@
-<%= form_with(model: product, local: true) do |form| %>
+<%= form_for(product) do |f| %>
   <% if product.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="w3-panel">
       <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
       <ul>
@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :product_title %>
+  <div class="w3-panel">
+    <%= f.label :title %>
+    <%= f.text_field :title , class:"w3-input w3-border" %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, rows: 10, cols: 60%>
+  <div class="w3-panel">
+    <%= f.label :description %>
+    <%= f.text_area :description , class:"w3-input w3-border" %>
   </div>
 
-  <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url, id: :product_image_url %>
+  <div class="w3-panel">
+    <%= f.label :image_url %>
+    <%= f.text_field :image_url , class:"w3-input w3-border" %>
   </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :product_price %>
+  <div class="w3-panel">
+    <%= f.label :price %>
+    <%= f.text_field :price , class:"w3-input w3-border" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit :Submit, class:"w3-button w3-light-gray w3-border" %>
   </div>
 <% end %>

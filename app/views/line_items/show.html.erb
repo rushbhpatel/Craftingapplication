@@ -1,29 +1,42 @@
-<p id="notice"><%= notice %></p>
+<p id="notice" class="w3-panel"><%= notice %></p>
 
-<div class="panel panel-default">
+<div class="w3-panel w3-aqua">
 
-<div class="panel-heading">line_item</div>
+<table class="w3-table-all">
+<thead>
+  <tr>
+    <th><h1>line_item</h1></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<tr>
 
-<div class="panel-body">
-
-
-<p>
+<td>
   <strong>Product:</strong>
+</td>
+<td>
   <%= @line_item.product %>
-</p>
+</td>
+</tr>
 
-
-<p>
+<td>
   <strong>Cart:</strong>
+</td>
+<td>
   <%= @line_item.cart %>
-</p>
+</td>
+</tr>
 
 
+<tr>
+<td>
+<%= link_to 'Edit', edit_line_item_path(@line_item) ,class:"w3-button w3-light-gray w3-border" %> 
+</td>
+<td>
+<%= link_to 'Back', line_items_path , class:"w3-button w3-light-gray w3-border" %>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-
-<div class="panel-footer">
-
-<%= link_to 'Edit', edit_line_item_path(@line_item) ,class:"btn btn-xs btn-danger" %> |
-<%= link_to 'Back', line_items_path , class:"btn btn-xs btn-danger" %>
-
-</div></div>

@@ -1,32 +1,36 @@
 <p id="notice" class="w3-panel"><%= notice %></p>
 
-<div class="w3-panel w3-aqua">
+<div class="w3-panel w3-white">
 
 <table class="w3-table-all">
+<thead>
+  <tr>
+    <th><h1>cart</h1></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+  
+<% @cart.line_items.each do |item| %>  
+<tr>
+  <td><%= item.quantity %> &times; <%= item.product.title %></td>
+  <td><%= number_to_currency(item.total_price) %></td>
+</tr>
+<% end %>
+    <tr>
+    <td>Total Order Value </td>
+    <td><%= number_to_currency(@cart.total_price) %></td>
+    </tr>
 
-
-<div class="panel panel-default">
-
-<div class="panel-heading">cart</div>
-
-<div class="panel-body">
-
-</div>
-
-<div class="panel-footer">
-
-<%= link_to 'Edit', edit_cart_path(@cart) ,class:"btn btn-xs btn-danger" %> |
-
-<%= link_to 'Back', carts_path , class:"btn btn-xs btn-danger" %> |
-
-<%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %> 
-
-<%= link_to 'Keep Shopping', store_index_url , class:"btn btn-primary" %> 
-
-
-<ul>
-    <% @cart.line_items.each do |item| %>
-    <li><%= item.quantity %> &times; <%= item.product.title %></li>
-	</tbody>
-  <% end %>
-</ul>
+<tr>
+<td>
+<%= link_to 'Edit', edit_cart_path(@cart) ,class:"w3-button w3-light-gray w3-border" %> 
+</td>
+<td>
+<%= link_to 'Back', carts_path , class:"w3-button w3-light-gray w3-border" %>
+</td>
+</tr>
+</tbody>
+</table>
+<%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' }, class:"w3-button w3-light-gray w3-border" %>
+<%= link_to 'Keep Shopping', store_index_url , class:"w3-button w3-light-gray w3-border" %></div>
